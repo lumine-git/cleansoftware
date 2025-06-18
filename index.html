@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clean Software</title>
+  <link rel="icon" type="image/png" href="Union.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Actor&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+JP:wght@200..900&family=Shippori+Mincho&display=swap" rel="stylesheet">
+  <style>
+   
+   
+h1,h2{font-family: "Actor", sans-serif;
+  font-weight: 400;
+  font-style: normal;}
+p, li,ul{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+} 
+.products::before,
+.products::after {
+  content: '❮';
+  font-size: 32px;
+  color: #ccc;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: default;
+}
+
+.products::after {
+  content: '❯';
+  right: 20px;
+}
+
+.products::before {
+  left: 20px;
+}
+
+.products {
+  position: relative; 
+}
+
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    
+   nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(9, 27, 51);
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.2);
+}
+
+.nav-left img {
+  height: 40px;
+  cursor: pointer;
+}
+
+
+.nav-right {
+  list-style: none;
+  display: flex;
+  margin-left: auto; 
+  gap: 25px;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+}
+
+.nav-right li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-right li a:hover:not(.disabled) {
+  background-color: rgb(6, 18, 35);
+  color: #f0f0f0;
+  cursor: pointer;
+}
+
+
+.nav-right li a.disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+    body {
+      padding-top: 60px; 
+    }
+
+    header {
+      background-color: rgb(9, 27, 51);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+    }
+
+    footer {
+      background-color: rgb(9, 27, 51);
+      color: white;
+      padding: 40px 20px;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      margin-top: 40px;
+      box-shadow: inset 0 1px 3px rgb(255 255 255 / 0.1);
+    }
+
+    footer .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      text-align: left;
+    }
+
+    footer .footer-section {
+      flex: 1 1 200px;
+      min-width: 200px;
+    }
+
+    footer h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-weight: bold;
+      color: #f0f0f0;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    footer ul li {
+      margin-bottom: 8px;
+    }
+
+    footer ul li a {
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    footer ul li a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    footer .social-links a {
+      margin-right: 15px;
+      font-size: 20px;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    footer .social-links a:hover {
+      color: white;
+    }
+
+    footer .copyright {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #888;
+    }
+
+   
+    .banner {
+      background-color: rgb(9, 27, 51);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 80px;
+      padding-bottom: 40px;
+      text-align: center;
+    }
+
+    .banner img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .frase {
+      padding-bottom: 130px;
+    }
+
+    .divider {
+      width: 100%;
+      height: 2px;
+      background-color: #ccc;
+      margin: 0;
+    }
+
+
+    .diferencial {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px;
+      background-color: #f9f9f9;
+      flex-wrap: wrap;
+      gap: 30px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgb(9 27 51 / 0.1);
+    }
+
+    .diferencial-item {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .diferencial-item img {
+      width: 80px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .diferencial-item h2 {
+      font-size: 18px;
+      margin: 10px 0 6px;
+    }
+
+    .diferencial-item p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+
+    .about {
+      padding: 60px;
+      background-color: #fff;
+    }
+
+    .about h1 {
+      text-align: left;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    .about-content {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1 1 400px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .about-image img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .products {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px;
+      background-color: #fff;
+      flex-wrap: wrap;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .product-item {
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgb(9 27 51 / 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .product-item:hover {
+      box-shadow: 0 8px 16px rgb(9 27 51 / 0.2);
+    }
+
+    .product-item img {
+      width: 160px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .product-item h2 {
+      font-size: 20px;
+      margin: 12px 0 10px;
+      color: rgb(9, 27, 51);
+    }
+
+    .product-item p {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .product-item button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      background-color: rgb(9, 27, 51);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .product-item button:hover {
+      background-color: rgb(6, 18, 35);
+    }
+
+    .contact {
+        
+      padding: 60px;
+      background-image: url(https://cdn.pixabay.com/photo/2021/11/21/21/14/mountain-6815304_1280.jpg);
+      max-width: 600px;
+      margin: 0 auto 60px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgb(9 27 51 / 0.1);
+      font-family: Arial, sans-serif;
+    }
+footer .copyright {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #ececec;
+    }
+
+    .contact h2 {
+      text-align: center;
+      color: rgb(9, 27, 51);
+      margin-bottom: 30px;
+      font-size: 26px;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact label {
+      font-weight: bold;
+      color: rgb(9, 27, 51);
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .contact input[type="text"],
+    .contact input[type="email"],
+    .contact textarea {
+      padding: 10px 12px;
+      font-size: 15px;
+      border: 2px solid rgb(9, 27, 51);
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+
+    .contact input[type="text"]:focus,
+    .contact input[type="email"]:focus,
+    .contact textarea:focus {
+      border-color: rgb(6, 18, 35);
+      outline: none;
+    }
+
+    .contact textarea {
+      min-height: 100px;
+      font-family: Arial, sans-serif;
+    }
+
+    .contact button {
+      align-self: center;
+      width: 150px;
+      padding: 10px 20px;
+      background-color: rgb(9, 27, 51);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact button:hover {
+      background-color: rgb(6, 18, 35);
+    }
+    
+
+    /* Responsividade básica */
+    @media (max-width: 768px) {
+      .diferencial, .products {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .diferencial-item, .product-item {
+        width: 90%;
+      }
+
+      .about-content {
+        flex-direction: column;
+      }
+
+      .about-image img {
+        width: 90%;
+      }
+
+      footer .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      footer .footer-section {
+        min-width: auto;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+
+  <header>
+  <nav>
+    <div class="nav-left">
+      <img src="Union.png" alt="Logo Union" />
+    </div>
+    <ul class="nav-right">
+      <li><a href="#sobre-nos">Sobre Nós</a></li>
+      <li><a href="ajuda.html">Ajuda</a></li>
+
+      <li><a href="#empregos" class="disabled" title="Em breve">Empregos</a></li>
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+  <section class="banner">
+    <img src="banner.png" class="logo" alt="Logo">
+    <img src="banner1.png" class="frase" alt="Frase motivacional">
+  </section>
+</header>
+  <div class="divider"></div>
+
+  <section class="diferencial">
+    <div class="diferencial-item">
+      <img src="cubo.png" alt="Cubo">
+      <h2>Computação de Alto Desempenho</h2>
+      <p>A computação de alto desempenho (HPC) é a capacidade de processar dados e realizar cálculos complexos em alta velocidade. Ela é essencial para o avanço da ciência computacional.</p>
+    </div>
+
+    <div class="diferencial-item">
+      <img src="piramide.png" alt="IA">
+      <h2>Inteligência Artificial</h2>
+      <p>A IA está impulsionando mudanças em todos os setores, da IA generativa ao reconhecimento de fala, otimizando tarefas e gerando valor com algoritmos avançados.</p>
+    </div>
+
+    <div class="diferencial-item">
+      <img src="mundo.png" alt="Nuvem">
+      <h2>Data Center e Computação em Nuvem</h2>
+      <p>Do data center à borda, soluções que oferecem desempenho inovador em IA e HPC, acelerando decisões e melhorando resultados empresariais.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="sobre-nos" class="about">
+    <h1>Sobre Nós</h1>
+    <div class="about-content">
+      <div class="about-text">
+        <p>Na Clean Software, excelência tecnológica não é apenas um objetivo — é um princípio fundamental. Nossa empresa nasce com a missão de redefinir os padrões de desempenho, leveza e eficiência no desenvolvimento de software.</p>
+
+        <p>Especialistas em soluções de alto desempenho, combinamos engenharia de ponta com design minimalista para criar sistemas inteligentes, rápidos e surpreendentemente leves. Cada linha de código é pensada para maximizar a performance, otimizar recursos e garantir escalabilidade sem comprometer a estabilidade.</p>
+
+        <p>Acreditamos que o futuro pertence às tecnologias limpas, eficientes e inteligentes. Por isso, nossos produtos são projetados não apenas para atender, mas para antecipar as necessidades de um mercado em constante evolução — seja em aplicações empresariais, inteligência artificial ou computação de alto desempenho.</p>
+
+        <p>Na Clean Software, inovação é limpa, rápida e precisa. E o futuro começa agora.</p>
+      </div>
+      <div class="about-image">
+        <img src="escritorio.png" alt="Escritório Clean Software">
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="produtos" class="products">
+    <div class="product-item">
+      <img src="hp.png" alt="HPC">
+      <h2>Plataforma de Processamento Paralelo</h2>
+      <p>Infraestrutura de computação de alto desempenho sob demanda para empresas que executam simulações, análise de dados massivos e modelagem.</p>
+      <button>Tenho interesse</button>
+    </div>
+
+    <div class="product-item">
+      <img src="ia.png" alt="IA Empresarial">
+      <h2>Motor de Inteligência Artificial Empresarial</h2>
+      <p>Software modular com IA para automação de processos, análise preditiva e otimização de logística, estoque e atendimento.</p>
+      <button>Tenho interesse</button>
+    </div>
+
+    <div class="product-item">
+      <img src="tr.png" alt="Monitoramento em Tempo Real">
+      <h2>Plataforma de Monitoramento em Tempo Real</h2>
+      <p>Sistema inteligente para monitorar redes, servidores e aplicações com IA que detecta falhas, gargalos e ameaças cibernéticas.</p>
+      <button>Tenho interesse</button>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  
+  <div class="divider"></div>
+
+  <section id="contato" class="contact"  style="margin-bottom: 80px;">
+
+    <h2>Contato</h2>
+    <p style="max-width:600px; margin: 0 auto 20px auto; font-size: 16px; color: #e9e9e9;">
+      <strong>Endereço:</strong> Rua da Tecnologia, 123 - São Paulo, SP<br />
+      <strong>Telefone:</strong> (11) 98765-4321<br />
+      <strong>Email:</strong> contato@cleansoftware.com.br<br />
+      <strong>Horário:</strong> Seg-Sex, 9h às 18h
+    </p>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="#sobre-nos">Sobre Nós</a></li>
+          <li><a href="#ajuda">Ajuda</a></li>
+          <li><a class="disabled" title="Seção em construção">Empregos</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Dados da Empresa</h3>
+        <p>Clean Software Ltda.</p>
+        <p>CNPJ: 12.345.678/0001-90</p>
+        <p>Rua da Tecnologia, 123, São Paulo, SP</p>
+        <p>CEP: 01234-567</p>
+        <p>Telefone: (11) 98765-4321</p>
+        <p>Email: contato@cleansoftware.com.br</p>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 Clean Software Ltda. Todos os direitos reservados.
+    </div>
+  </footer>
